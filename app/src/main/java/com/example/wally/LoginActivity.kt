@@ -1,16 +1,19 @@
 package com.example.wally
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.ImageView
+import android.util.Log
 import androidx.core.content.ContextCompat
+import com.example.wally.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding= ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         supportActionBar?.hide()
         window.statusBarColor = ContextCompat.getColor(this, R.color.black)
 
@@ -19,26 +22,22 @@ class LoginActivity : AppCompatActivity() {
 
         sharedPref.getString("name", null)
 
-        val loginButton = findViewById<ImageView>(R.id.button_login)
+        val loginButton = binding.buttonLogin
         loginButton.setOnClickListener {
-           var emailSharedPref = sharedPref.getString("email", null)
-            var passwordSharedPref = sharedPref.getString("password",null)
+           val emailSharedPref = sharedPref.getString("email", null)
+            val passwordSharedPref = sharedPref.getString("password",null)
 
-            val emailText = findViewById<EditText>(R.id.editText_Email)
-            val passwordText = findViewById<EditText>(R.id.editText_Password)
+            val emailText = binding.editTextEmail
+            val passwordText = binding.editTextPassword
 
             if(emailSharedPref == emailText.text.toString() && passwordSharedPref == passwordText.text.toString()){
-                print("User successfully logged In")
+                Log.i("Login: ","User successfully logged In")
+                val intent = Intent(this,HomeActivity::class.java)
+                startActivity(intent)
             }else{
                 passwordText.error = "Incorrect Username or Password"
             }
         }
 
-        //screen navigation using Intent
-//        var textRegister = findViewById<TextView>(R.id.text_register)
-//        textRegister.setOnClickListener {
-//            val intent= Intent(this, LoginActivity::class.java)
-//            startActivity(intent)
-//        }
     }
 }
