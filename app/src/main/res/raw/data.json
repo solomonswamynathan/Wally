@@ -1,0 +1,44 @@
+{
+  "success": true,
+  "total_photos": 132,
+  "message": "Successfully fetched 30 of 132 photos",
+  "offset": 5,
+  "limit": 30,
+  "photos": [
+    {
+      "url": "https://api.slingacademy.com/public/sample-photos/6.jpeg",
+      "user": 30,
+      "title": "Apply future response she reduce decide",
+      "id": 6,
+      "description": "Training beautiful age four skin cultural hundred environmental ability blood go physical relate produce tough open police."
+    },
+    {
+      "url": "https://api.slingacademy.com/public/sample-photos/7.jpeg",
+      "user": 20,
+      "title": "Fire year candidate too like",
+      "id": 7,
+      "description": "Few address take for special development white career."
+    },
+    {
+      "url": "https://api.slingacademy.com/public/sample-photos/8.jpeg",
+      "user": 13,
+      "title": "Reflect design camera land girl wind behind side",
+      "id": 8,
+      "description": "Drug if approach out according set home job company wall source trouble act huge easy style physical so month."
+    },
+    {
+      "url": "https://api.slingacademy.com/public/sample-photos/9.jpeg",
+      "user": 2,
+      "title": "Per nature research",
+      "id": 9,
+      "description": "Nature focus wonder behind magazine pattern degree far without tree consider."
+    },
+    {
+      "url": "https://api.slingacademy.com/public/sample-photos/10.jpeg",
+      "user": 30,
+      "title": "Yard",
+      "id": 10,
+      "description": "Parent talk collection fill between management purpose fish fight real teacher successful me arrive little."
+    }
+  ]
+}
