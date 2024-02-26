@@ -1,5 +1,8 @@
 package com.example.wally
 
+import android.os.Parcel
+import android.os.Parcelable
+
 data class Wallpapers(
     var success: Boolean,
     var total_photos: Int,
@@ -15,7 +18,38 @@ data class Photo(
     var user: Int,
     var id: Int,
     var description: String
-)
+): Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
+        parcel.readString()!!,
+        parcel.readInt(),
+        parcel.readInt(),
+        parcel.readString()!!
+    ) {
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(url)
+        parcel.writeString(title)
+        parcel.writeInt(user)
+        parcel.writeInt(id)
+        parcel.writeString(description)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Photo> {
+        override fun createFromParcel(parcel: Parcel): Photo {
+            return Photo(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Photo?> {
+            return arrayOfNulls(size)
+        }
+    }
+}
 
 //example model
 ///{
