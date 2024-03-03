@@ -39,5 +39,12 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+
+        val cameraButton = binding.buttonGoogle
+        cameraButton.setOnClickListener {
+            val intent = Intent(this,CameraActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
